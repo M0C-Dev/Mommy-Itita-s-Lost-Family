@@ -1,2 +1,2 @@
 # Mommy Itita's Lost Family
-Simple and cute RPG!
+By me 🪤
