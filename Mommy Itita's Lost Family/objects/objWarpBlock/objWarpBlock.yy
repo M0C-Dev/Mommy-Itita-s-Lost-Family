@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"objPlayer",
+  "%Name":"objWarpBlock",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objPlayer",
+  "name":"objWarpBlock",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Transition System",
+    "path":"folders/Transition System.yy",
   },
   "parentObjectId":null,
-  "persistent":true,
+  "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -31,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprPlayerDown",
-    "path":"sprites/sprPlayerDown/sprPlayerDown.yy",
+    "name":"sprWarpBlock",
+    "path":"sprites/sprWarpBlock/sprWarpBlock.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

@@ -9,6 +9,13 @@ down_key = keyboard_check(vk_down);
 xspd = ( right_key - left_key ) * move_spd;
 yspd = ( down_key - up_key ) * move_spd;
 
+// Pause
+if ( instance_exists(objPauser) )
+{
+	xspd = 0;
+	yspd = 0;
+}
+
 // Set sprite
 mask_index = sprite[DOWN];
 // x
