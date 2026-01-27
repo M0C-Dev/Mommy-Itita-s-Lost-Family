@@ -14,7 +14,6 @@ if ( !setup )
 	draw_set_halign(fa_left);
 	
 	//Loop on pages
-	page_number = array_length(text);
 	for ( var _p = 0; _p < page_number; _p++; )
 	{
 		// Quantos caracteres tem em cada pagina
@@ -48,6 +47,10 @@ if ( accept_key )
 		// Destroy textbox
 		else
 		{
+			if ( option_number > 0 )
+			{
+				createTextbox(option_link_id[option_pos]);
+			}
 			instance_destroy();
 		}
 	}
@@ -58,13 +61,45 @@ if ( accept_key )
 	}
 }
 
+
 // -------------------------- Draw textbox -------------------------- 
+var _txtb_x = textbox_x+text_x_offset[page];
+var _txtb_y = textbox_y
 textb_img += textb_img_spd;
 txtb_spr_w = sprite_get_width(textb_spr);
 txtb_spr_h = sprite_get_height(textb_spr);
 // Draw back
-draw_sprite_ext( textb_spr, textb_img, textbox_x+text_x_offset[page], textbox_y, textbox_width/txtb_spr_w, textbox_height/txtb_spr_h, 0, c_white, 1 );
+draw_sprite_ext( textb_spr, textb_img, _txtb_x, _txtb_y, textbox_width/txtb_spr_w, textbox_height/txtb_spr_h, 0, c_white, 1 );
+
+// -------------------------- Options -------------------------- 
+if ( draw_char == text_length[page] && page == page_number-1 )
+{
+	//Option selection
+	option_pos += keyboard_check_pressed(vk_down)-keyboard_check_pressed(vk_up);
+	option_pos = clamp(option_pos, 0, option_number-1);
+	
+	//Draw tne options
+	var _op_space = 18;
+	var _op_border = 8;
+	var _op_distance_border = 18;
+	
+	for ( var op = 0; op < option_number; op++; )
+	{
+		//Option box
+		var _o_w = string_width(option[op]) + _op_border*2;
+		draw_sprite_ext( textb_spr, textb_img, _txtb_x+_op_distance_border, _txtb_y - _op_space*option_number + _op_space*op, _o_w/txtb_spr_w, (_op_space-1)/txtb_spr_h, 0, c_white, 1 );
+		
+		//Visual indicator
+		if ( option_pos == op )
+		{
+			draw_sprite(option_visual_indicator, 0, _txtb_x, _txtb_y - _op_space*option_number + _op_space*op)
+		}
+		
+		//The option text
+		draw_text( _txtb_x+_op_distance_border + _op_border, _txtb_y - _op_space*option_number + _op_space*op+1, option[op] )
+	}
+}
 
 // Draw text
 var _drawtext = string_copy(text[page], 1, draw_char);
-draw_text_ext( textbox_x+text_x_offset[page]+border, textbox_y+border, _drawtext, line_sep, line_width )
+draw_text_ext( _txtb_x+border, _txtb_y+border, _drawtext, line_sep, line_width )

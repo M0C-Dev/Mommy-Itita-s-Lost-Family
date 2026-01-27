@@ -14,15 +14,18 @@ textb_img_spd = 0; // Caso seja animado, seria a velocidade dividio por 60 (Ex: 
 page = 0;
 page_number = 0;
 
-text[0] = "The beacon has found a new owner.";
-text[1] = "Let it grow. Let it grow. Let it die. Let it die. Ling ling Mion.";
-text[2] = "My name is Itita, im lesbian.";
-text[3] = "Help me find my fuck-ass 25 eggs/sons.";
-text[4] = "Theese bitch-ass hot lesbian mommys stole then! They think they are better MILFS!";
+text[0] = "";
 
 text_length[0] = string_length(text[0]);
 draw_char = 0;
 text_spd = 1;
+
+//Options
+option[0] = "";
+option_link_id = -1;
+option_pos = 0;
+option_number = 0;
+option_visual_indicator = sprSelection;
 
 setup = false;
 
