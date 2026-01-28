@@ -1,0 +1,1 @@
+NewEncounter([global.enemies.Plant, global.enemies.Plant], sprBattleBackground);

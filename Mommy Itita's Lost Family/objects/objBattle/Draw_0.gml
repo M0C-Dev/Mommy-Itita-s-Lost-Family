@@ -1,0 +1,1 @@
+draw_sprite( sprBattleBackground, 0, x, y );

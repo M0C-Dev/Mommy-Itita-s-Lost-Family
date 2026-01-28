@@ -1,22 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"objSpeakFlower",
+  "%Name":"objBattleUnit",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":80,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objSpeakFlower",
+  "name":"objBattleUnit",
   "overriddenProperties":[],
   "parent":{
-    "name":"DialogSystem",
-    "path":"folders/GUI/DialogSystem.yy",
+    "name":"BattleSystem",
+    "path":"folders/BattleSystem.yy",
   },
-  "parentObjectId":{
-    "name":"objWall",
-    "path":"objects/objWall/objWall.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprPlantPot",
-    "path":"sprites/sprPlantPot/sprPlantPot.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

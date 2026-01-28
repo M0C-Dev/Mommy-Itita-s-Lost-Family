@@ -14,7 +14,7 @@ switch(_text_id)
 		break;
 		// Yes
 		case "plant 1 - yes":
-			scrText("Thank god.");
+			scrText("Thank god.")
 			break
 		// No
 		case "plant 1 - no":
