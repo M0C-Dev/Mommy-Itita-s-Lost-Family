@@ -12,6 +12,9 @@
   "Folders":[
     {"$GMFolder":"","%Name":"BattleSystem","folderPath":"folders/BattleSystem.yy","name":"BattleSystem","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"BattleBackgrounds","folderPath":"folders/BattleSystem/BattleBackgrounds.yy","name":"BattleBackgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"BattleUnits","folderPath":"folders/BattleSystem/BattleUnits.yy","name":"BattleUnits","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Player","folderPath":"folders/BattleSystem/BattleUnits/Player.yy","name":"Player","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"GUI","folderPath":"folders/GUI.yy","name":"GUI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"DialogSystem","folderPath":"folders/GUI/DialogSystem.yy","name":"DialogSystem","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menu System","folderPath":"folders/GUI/Menu System.yy","name":"Menu System","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -37,6 +40,7 @@
   "name":"Mommy Itita's Lost Family",
   "resources":[
     {"id":{"name":"fntMainFont","path":"fonts/fntMainFont/fntMainFont.yy",},},
+    {"id":{"name":"fntSmallerFont","path":"fonts/fntSmallerFont/fntSmallerFont.yy",},},
     {"id":{"name":"objBattle","path":"objects/objBattle/objBattle.yy",},},
     {"id":{"name":"objBattleUnit","path":"objects/objBattleUnit/objBattleUnit.yy",},},
     {"id":{"name":"objBattleUnitEnemy","path":"objects/objBattleUnitEnemy/objBattleUnitEnemy.yy",},},
@@ -66,6 +70,10 @@
     {"id":{"name":"WarpFunction","path":"scripts/WarpFunction/WarpFunction.yy",},},
     {"id":{"name":"sprBakeryTileset","path":"sprites/sprBakeryTileset/sprBakeryTileset.yy",},},
     {"id":{"name":"sprBattleBackground","path":"sprites/sprBattleBackground/sprBattleBackground.yy",},},
+    {"id":{"name":"sprBPlayerAttack","path":"sprites/sprBPlayerAttack/sprBPlayerAttack.yy",},},
+    {"id":{"name":"sprBPlayerDefend","path":"sprites/sprBPlayerDefend/sprBPlayerDefend.yy",},},
+    {"id":{"name":"sprBPlayerDown","path":"sprites/sprBPlayerDown/sprBPlayerDown.yy",},},
+    {"id":{"name":"sprBPlayerIdle","path":"sprites/sprBPlayerIdle/sprBPlayerIdle.yy",},},
     {"id":{"name":"sprMenuScrollStars","path":"sprites/sprMenuScrollStars/sprMenuScrollStars.yy",},},
     {"id":{"name":"sprNineSlice","path":"sprites/sprNineSlice/sprNineSlice.yy",},},
     {"id":{"name":"sprPlantPot","path":"sprites/sprPlantPot/sprPlantPot.yy",},},

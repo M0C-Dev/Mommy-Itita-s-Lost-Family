@@ -119,8 +119,8 @@
   "maintainGms1Font":false,
   "name":"fntMainFont",
   "parent":{
-    "name":"GUI",
-    "path":"folders/GUI.yy",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

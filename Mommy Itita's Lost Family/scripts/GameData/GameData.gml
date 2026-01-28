@@ -3,13 +3,23 @@
 global.party =
 [
 	{
-		name: "Itíta",
+		name: "Itita",
 		hp: 15,
 		hpMax: 15,
 		mp: 10,
 		mpMax: 10,
 		strength: 6,
-		sprites : { idle:sprPlayerRight, attack:sprPlayerRight, defend:sprPlayerRight, down:sprPlayerRight },
+		sprites : { idle:sprBPlayerIdle, attack:sprBPlayerAttack, defend:sprBPlayerDefend, down:sprBPlayerDown },
+		actions : []
+	},
+	{
+		name: "Ipiti",
+		hp: 5,
+		hpMax: 15,
+		mp: 0,
+		mpMax: 10,
+		strength: 6,
+		sprites : { idle:sprBPlayerAttack, attack:sprBPlayerIdle, defend:sprBPlayerDefend, down:sprBPlayerDown },
 		actions : []
 	}
 ];
