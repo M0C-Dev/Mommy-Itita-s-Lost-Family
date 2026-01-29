@@ -3,9 +3,9 @@ global.actionLibrary =
 {
 	attack :
 	{
-		name : "Attack",
-		description : "{0} attacks!",
-		subMenu : -1,
+		name : "Insult",
+		description : "{0} insults his mom!",
+		subMenu : -1, //"Attacks",
 		targetRequired : true,
 		targetEnemyByDefault : true,
 		targetAll : MODE.NEVER,
@@ -16,7 +16,24 @@ global.actionLibrary =
 		{
 			var _damage = ceil(_user.strength + random_range(-_user.strength *0.25, _user.strength * 0.25));
 			BattleChangeHP( _targets[0], -_damage, 0 )
-			_targets[0].hitFlashAlpha = 1;
+		}
+	},
+	shock :
+	{
+		name : "Shock",
+		description : "{0} use shock!",
+		subMenu : "Abilities",
+		mpCost : 2,
+		targetRequired : true,
+		targetEnemyByDefault : true,
+		targetAll : MODE.ALWAYS,
+		userAnimation : "attack",
+		//effectSprite : sprDebugAnimation,
+		effectOnTarget : MODE.ALWAYS,
+		func : function(_user, _targets)
+		{
+			var _damage = irandom_range(2,10);
+			BattleChangeHP( _targets[0], -_damage, 0 )
 		}
 	}
 }
@@ -39,7 +56,7 @@ global.party =
 		strength : 2,
 		critChance : 100,
 		sprites : { idle:sprPortraitPlayerIdle, attack:sprPortraitPlayerAttack, defend:sprPortraitPlayerIdle, down:sprPortraitPlayerDown },
-		actions : []
+		actions : [global.actionLibrary.attack, global.actionLibrary.shock]
 	},
 ];
 
