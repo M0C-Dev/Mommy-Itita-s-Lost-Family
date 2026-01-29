@@ -3,6 +3,7 @@ battleState();
 //Cursor control
 if ( cursor.active )
 {
+	battleText = "Select target!";
 	with (cursor)
 	{
 		//Input

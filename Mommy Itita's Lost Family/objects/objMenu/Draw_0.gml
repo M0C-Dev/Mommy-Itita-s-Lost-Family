@@ -1,3 +1,5 @@
+if (!active) exit;// Nao exibe se desativado!
+
 draw_sprite_stretched(boxSpr, 0, x, y, widthFull, heightFull);
 draw_set_colour(c_white);
 draw_set_font(global.font_main);

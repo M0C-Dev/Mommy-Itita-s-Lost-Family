@@ -92,6 +92,7 @@
     {"id":{"name":"sprPortraitPlayerAttack","path":"sprites/sprPortraitPlayerAttack/sprPortraitPlayerAttack.yy",},},
     {"id":{"name":"sprPortraitPlayerDown","path":"sprites/sprPortraitPlayerDown/sprPortraitPlayerDown.yy",},},
     {"id":{"name":"sprPortraitPlayerIdle","path":"sprites/sprPortraitPlayerIdle/sprPortraitPlayerIdle.yy",},},
+    {"id":{"name":"sprPortraitPlayerShock","path":"sprites/sprPortraitPlayerShock/sprPortraitPlayerShock.yy",},},
     {"id":{"name":"sprSelection","path":"sprites/sprSelection/sprSelection.yy",},},
     {"id":{"name":"sprSelector","path":"sprites/sprSelector/sprSelector.yy",},},
     {"id":{"name":"sprTitleLetters","path":"sprites/sprTitleLetters/sprTitleLetters.yy",},},

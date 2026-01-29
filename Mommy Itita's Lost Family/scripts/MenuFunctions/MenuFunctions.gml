@@ -67,7 +67,6 @@ function MenuGoBack()
 function MenuSelectAction( _user, _action )
 {
 	with (objMenu) { active = false };
-	
 	//Activate the targetting cursor if needed, or simply begin the action
 	with (objBattle)
 	{
