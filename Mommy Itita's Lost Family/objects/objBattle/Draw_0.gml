@@ -80,3 +80,37 @@ for ( var i = 0; (i < array_length(partyUnits)); i++ )
 	
 	draw_set_colour(c_white);
 }
+
+//Draw target cursor
+if ( cursor.active )
+{
+	with ( cursor )
+	{
+		if ( activeTarget != noone )
+		{
+			if (!is_array(activeTarget))
+			{
+				draw_sprite(sprSelector, 0, activeTarget.x, activeTarget.y);
+			}
+			else
+			{
+				draw_set_alpha(sin(get_timer()/50000)+1);
+				for ( var i = 0; i < array_length(activeTarget); i++ )
+				{
+					draw_sprite(sprSelector, 0, activeTarget[i].x, activeTarget[i].y);
+				}
+				draw_set_alpha(1.0)
+			}
+		}
+	}
+}
+
+//Draw battle text
+if ( battleText != "" )
+{
+	var _w = string_width(battleText)+20;
+	draw_sprite_stretched(sprNineSlice,0,x+144-(_w*0.5),y+0,_w,25);
+	draw_set_halign(fa_center);
+	draw_set_colour(c_white);
+	draw_text(x+144, y+5, battleText)
+}

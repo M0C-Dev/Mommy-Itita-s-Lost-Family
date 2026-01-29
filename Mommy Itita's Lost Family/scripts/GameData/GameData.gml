@@ -5,7 +5,7 @@ global.actionLibrary =
 	{
 		name : "Insult",
 		description : "{0} insults his mom!",
-		subMenu : -1, //"Attacks",
+		subMenu : "Attacks",
 		targetRequired : true,
 		targetEnemyByDefault : true,
 		targetAll : MODE.NEVER,
@@ -32,8 +32,40 @@ global.actionLibrary =
 		effectOnTarget : MODE.ALWAYS,
 		func : function(_user, _targets)
 		{
-			var _damage = irandom_range(2,10);
-			BattleChangeHP( _targets[0], -_damage, 0 )
+			for ( var i = 0; i < array_length(_targets); i++; )
+			{
+				var _damage = irandom_range(2,10);
+				if (array_length(_targets) > 1)
+				{
+					_damage = ceil(_damage*0.75)
+				}
+				BattleChangeHP( _targets[i], -_damage, 0 );
+			}
+		}
+	},
+	cure :
+	{
+		name : "Cure",
+		description : "{0} use cure!",
+		subMenu : "Abilities",
+		mpCost : 2,
+		targetRequired : true,
+		targetEnemyByDefault : false,
+		targetAll : MODE.NEVER,
+		userAnimation : "attack",
+		//effectSprite : sprDebugAnimation,
+		effectOnTarget : MODE.ALWAYS,
+		func : function(_user, _targets)
+		{
+			for ( var i = 0; i < array_length(_targets); i++; )
+			{
+				var _cure = irandom_range(2,5);
+				if (array_length(_targets) > 1)
+				{
+					_cure = ceil(_cure*0.75)
+				}
+				BattleChangeHP( _targets[i], _cure, 0 );
+			}
 		}
 	}
 }
@@ -56,7 +88,7 @@ global.party =
 		strength : 2,
 		critChance : 100,
 		sprites : { idle:sprPortraitPlayerIdle, attack:sprPortraitPlayerAttack, defend:sprPortraitPlayerIdle, down:sprPortraitPlayerDown },
-		actions : [global.actionLibrary.attack, global.actionLibrary.shock]
+		actions : [global.actionLibrary.attack, global.actionLibrary.shock, global.actionLibrary.cure]
 	},
 ];
 

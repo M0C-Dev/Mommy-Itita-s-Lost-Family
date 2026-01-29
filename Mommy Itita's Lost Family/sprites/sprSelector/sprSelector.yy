@@ -30,7 +30,7 @@
   ],
   "name":"sprSelector",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"BattleSystem",
     "path":"folders/BattleSystem.yy",
@@ -104,7 +104,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":16,
-    "yorigin":64,
+    "yorigin":48,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

@@ -4,6 +4,21 @@ turn = 0;
 unitTurnOrder = [];
 unitRenderOrder = [];
 
+battleText = "";
+
+//Make targetting cursor
+cursor = 
+{
+	activeUser : noone,
+	activeTarget : noone,
+	activeAction : -1,
+	targetSide : -1,
+	targetIndex : 0,
+	targetAll : false,
+	confirmDelay : 0,
+	active : false
+}
+
 turnCount = 0;
 roundCount = 0;
 battleWaitTimeFrames = 90;
@@ -87,19 +102,20 @@ function BattleStateSelectAction()
 						array_push(_subMenus[$ _action.subMenu], [_nameAndCount, MenuSelectAction, [_unit, _action], _available]);
 					}
 				}
+			}
+			
+			// turn sub menus into an array
+			var _subMenusArray = variable_struct_get_names(_subMenus);
+			for ( var i = 0; i < array_length(_subMenusArray); i++ )
+			{
+				//sort submenu if needed (here)
 				
-				// turn sub menus into an array
-				var _subMenusArray = variable_struct_get_names(_subMenus);
-				for ( var i = 0; i < array_length(_subMenusArray); i++ )
-				{
-					//sort submenu if needed (here)
-					
 					//add back to sub menu
 					array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true]);
-					//add submenu to main menu
+				//add submenu to main menu
 					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true])
-				}
 			}
+			
 			Menu(x+8, y+8, _menuOptions);
 		}
 		else
@@ -117,6 +133,7 @@ function BeginAction( _user, _action, _targets )
 	currentUser = _user;
 	currentAction = _action;
 	currentTargets = _targets;
+	battleText = string_ext(_action.description, [_user.name]);
 	if ( !is_array(currentTargets) ) { currentTargets = [currentTargets] };
 	battleWaitTimeRemaining = battleWaitTimeFrames;
 	with ( _user )
@@ -186,6 +203,7 @@ function BattleStateVictoryCheck()
 
 function BattleStateTurnProgression()
 {
+	battleText = "";
 	turnCount++;
 	turn++;
 	if ( turn > array_length(unitTurnOrder) - 1 )
