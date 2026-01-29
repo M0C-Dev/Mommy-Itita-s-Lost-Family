@@ -7,6 +7,7 @@ global.actionLibrary =
 		description : "{0} insults his mom!",
 		subMenu : "Attacks",
 		targetRequired : true,
+		targetType : TARGET_TYPE.ENEMY,
 		targetEnemyByDefault : true,
 		targetAll : MODE.NEVER,
 		userAnimation : "attack",
@@ -23,8 +24,9 @@ global.actionLibrary =
 		name : "Shock",
 		description : "{0} use shock!",
 		subMenu : "Abilities",
-		mpCost : 2,
+		epCost : 2,
 		targetRequired : true,
+		targetType : TARGET_TYPE.ENEMY,
 		targetEnemyByDefault : true,
 		targetAll : MODE.ALWAYS,
 		userAnimation : "attack",
@@ -48,8 +50,9 @@ global.actionLibrary =
 		name : "Cure",
 		description : "{0} use cure!",
 		subMenu : "Abilities",
-		mpCost : 2,
+		epCost : 2,
 		targetRequired : true,
+		targetType : TARGET_TYPE.ALLY,
 		targetEnemyByDefault : false,
 		targetAll : MODE.NEVER,
 		userAnimation : "attack",
@@ -69,12 +72,6 @@ global.actionLibrary =
 		}
 	}
 }
-enum MODE
-{
-	NEVER = 0,
-	ALWAYS = 1,
-	VARIES = 2
-}
 
 // Party Data
 global.party =
@@ -83,8 +80,8 @@ global.party =
 		name : "Itita",
 		hp : 30,
 		hpMax : 30,
-		mp : 10,
-		mpMax : 10,
+		ep : 10,
+		epMax : 10,
 		strength : 2,
 		critChance : 100,
 		sprites : { idle:sprPortraitPlayerIdle, attack:sprPortraitPlayerAttack, defend:sprPortraitPlayerIdle, down:sprPortraitPlayerDown },
@@ -100,8 +97,8 @@ global.enemies =
 		name : "Plant",
 		hp : 5,
 		hpMax : 5,
-		mp: 5,
-		mpMax : 5,
+		ep: 5,
+		epMax : 5,
 		strength : 6,
 		critChance : 10,
 		sprites : { idle:sprPortraitFlowerPotIdle, attack:sprPortraitFlowerPotIdle, defend:sprPortraitFlowerPotIdle, down:sprPortraitFlowerPotBroken },
@@ -120,3 +117,16 @@ global.enemies =
 		}
 	}
 };
+
+enum MODE
+{
+	NEVER = 0,
+	ALWAYS = 1,
+	VARIES = 2
+}
+enum TARGET_TYPE
+{
+	ENEMY = 0,
+	ALLY = 1,
+	BOTH = 2
+}

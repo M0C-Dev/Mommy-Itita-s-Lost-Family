@@ -27,8 +27,23 @@ if ( cursor.active )
 		var _moveH = _right_key - _left_key;
 		var _moveV = _down_key - _up_key;
 		
-		if (_moveH == -1) { targetSide = objBattle.partyUnits };
-		if (_moveH == 1) { targetSide = objBattle.enemyUnits };
+		//Trava o lado de acordo com o target type
+		if (activeAction.targetType == TARGET_TYPE.BOTH)
+		{
+			if (_moveH == -1) { targetSide = objBattle.partyUnits };
+			if (_moveH == 1) { targetSide = objBattle.enemyUnits };
+		}
+		else if (activeAction.targetType == TARGET_TYPE.ALLY)
+		{
+			targetSide = objBattle.partyUnits;
+		}
+		else if (activeAction.targetType == TARGET_TYPE.ENEMY)
+		{
+			targetSide = objBattle.enemyUnits;
+		}
+		// (old)
+		//if (_moveH == -1) { targetSide = objBattle.partyUnits };
+		//if (_moveH == 1) { targetSide = objBattle.enemyUnits };
 		
 		//Verify target list
 		if ( targetSide == objBattle.enemyUnits )

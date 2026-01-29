@@ -26,7 +26,7 @@ for ( var i = 0; i < array_length(unitRenderOrder); i++ )
 #macro COLUMN_ENEMY 8
 #macro COLUMN_NAME 88
 #macro COLUMN_HP 168
-#macro COLUMN_MP 208
+#macro COLUMN_EP 208
 
 //Draw headings
 draw_set_font(global.font_smaller);
@@ -36,7 +36,7 @@ draw_set_colour(c_gray);
 draw_text(x+COLUMN_ENEMY, y+164, "ENEMY");
 draw_text(x+COLUMN_NAME, y+164, "NAME");
 draw_text(x+COLUMN_HP, y+164, "HP");
-draw_text(x+COLUMN_MP, y+164, "MP");
+draw_text(x+COLUMN_EP, y+164, "EP");
 
 //Draw enemy names
 draw_set_font(global.font_main);
@@ -73,10 +73,10 @@ for ( var i = 0; (i < array_length(partyUnits)); i++ )
 	if ( _char.hp <= 0 ) { draw_set_colour(c_red); };
 	draw_text(x+COLUMN_HP, y+168+(i*11), string(_char.hp) + "/" + string(_char.hpMax));
 	
-	//MP
-	if ( _char.mp < (_char.mpMax*0.5) ) { draw_set_colour(c_orange); };
-	if ( _char.mp <= 0 ) { draw_set_colour(c_red); };
-	draw_text(x+COLUMN_MP, y+168+(i*11), string(_char.mp) + "/" + string(_char.mpMax));
+	//EP
+	if ( _char.ep < (_char.epMax*0.5) ) { draw_set_colour(c_orange); };
+	if ( _char.ep <= 0 ) { draw_set_colour(c_red); };
+	draw_text(x+COLUMN_EP, y+168+(i*11), string(_char.ep) + "/" + string(_char.epMax));
 	
 	draw_set_colour(c_white);
 }

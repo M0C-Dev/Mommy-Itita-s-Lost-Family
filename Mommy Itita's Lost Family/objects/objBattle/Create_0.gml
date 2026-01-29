@@ -116,7 +116,7 @@ function BattleStateSelectAction()
 					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true])
 			}
 			
-			Menu(x+8, y+8, _menuOptions);
+			Menu(x, y, _menuOptions);
 		}
 		else
 		{
@@ -198,6 +198,40 @@ function BattleStatePerformAction()
 
 function BattleStateVictoryCheck()
 {
+	RefreshPartyHealthOrder = function()
+	{
+		partyUnitsByHp = [];
+		array_copy(partyUnitsByHp, 0, partyUnits, 0, array_length(partyUnits));
+		array_sort(partyUnitsByHp, function(_1,_2)
+		{
+			return _2.hp - _1.hp;
+		})
+	}
+	RefreshPartyHealthOrder();
+	
+	RefreshEnemiesHealthOrder = function()
+	{
+		enemiesUnitsByHp = [];
+		array_copy(enemiesUnitsByHp, 0, enemyUnits, 0, array_length(enemyUnits));
+		array_sort(enemiesUnitsByHp, function(_1,_2)
+		{
+			return _2.hp - _1.hp;
+		})
+	}
+	RefreshEnemiesHealthOrder();
+	
+	if ( partyUnitsByHp[0].hp <= 0 )
+	{
+		instance_destroy();
+	}
+	if ( enemiesUnitsByHp[0].hp <= 0 )
+	{
+		//for ( var i = 0; i < array_length(global.party); i++ )
+		//{
+		//	global.party[i].hp = partyUnits[i].hp;
+		//}
+		instance_destroy();
+	}
 	battleState = BattleStateTurnProgression;
 }
 
