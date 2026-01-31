@@ -81,9 +81,17 @@ for ( var i = 0; (i < array_length(partyUnits)); i++ )
 	draw_set_colour(c_white);
 }
 
-//Draw target cursor
+//Draw target cursor and selection text
 if ( cursor.active )
 {
+	//Texts
+	draw_set_colour(c_dkgrey);
+	draw_set_valign(fa_top);
+	draw_set_halign(fa_left);
+	draw_set_font(global.font_smaller);
+	draw_text(2,2,"ESC TO CANCEL");
+	draw_set_colour(c_white);
+	battleText = "Select target!";
 	with ( cursor )
 	{
 		if ( activeTarget != noone )
@@ -110,6 +118,8 @@ if ( battleText != "" )
 {
 	var _w = string_width(battleText)+20;
 	draw_sprite_stretched(sprNineSlice,0,x+144-(_w*0.5),y+0,_w,25);
+	draw_set_font(global.font_main);
+	draw_set_colour(c_white);
 	draw_set_halign(fa_center);
 	draw_set_colour(c_white);
 	draw_text(x+144, y+5, battleText)

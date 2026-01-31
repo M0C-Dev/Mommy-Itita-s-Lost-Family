@@ -22,6 +22,8 @@ for ( l = 0; l < (visibleOptionsMax + _desc); l++ )
 	{
 		var _optionToShow = l-_desc+_scrollPush;
 		var _str = options[_optionToShow][0];
+
+		
 		if ( hover == _optionToShow - _desc )
 		{
 			_hoverMargin += 4;
@@ -31,7 +33,22 @@ for ( l = 0; l < (visibleOptionsMax + _desc); l++ )
 		{
 			draw_set_colour(c_gray);
 		}
-		draw_text( x+xmargin+_hoverMargin, y+ymargin + l*heightLine, _str );
+		//Icon drawing
+		var _icon = -1;
+		if (array_length(options[_optionToShow]) > 4)
+		{
+			_icon = options[_optionToShow][4];
+		}
+		if (hasIcons && _icon != -1)
+		{
+			//Desenha o icone se houver.
+			var _iconY = y + ymargin + l * heightLine + (heightLine - sprite_get_height(_icon)) * 0.5;
+			
+			draw_sprite( _icon, 0, x + xmargin + _hoverMargin, _iconY-1 );
+		}
+
+
+		draw_text( x+xmargin+_hoverMargin + iconOffset, y+ymargin + l*heightLine, _str );
 	}
 }
 //Se tiver ponteiro aqui q vai o codigo pra desenhar ele, pode ser so um draw sprite na posição e o y (y+ (hover - _scrollPush)*heightLine)+7)

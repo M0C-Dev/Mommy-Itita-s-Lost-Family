@@ -30,14 +30,14 @@ currentTargets = noone;
 //Make enemies
 for ( var _i = 0; _i < array_length(enemies); _i++ )
 {
-	enemyUnits[_i] = instance_create_depth( x+214-(_i*36), y+102,depth-10, objBattleUnitEnemy, enemies[_i] );
+	enemyUnits[_i] = instance_create_depth( x+230-(_i*36), y+102,depth-10, objBattleUnitEnemy, enemies[_i] );
 	array_push(units, enemyUnits[_i]);
 }
 
 //Make party
 for ( var _i = 0; _i < array_length(global.party); _i++ )
 {
-	partyUnits[_i] = instance_create_depth( x+91+(_i*72), y+84,depth-10, objBattleUnitPC, global.party[_i] );
+	partyUnits[_i] = instance_create_depth( x+75+(_i*72), y+84,depth-10, objBattleUnitPC, global.party[_i] );
 	array_push(units, partyUnits[_i]);
 }
 
@@ -87,19 +87,26 @@ function BattleStateSelectAction()
 				var _action = _actionList[i];
 				var _available = true; //CHECAR MP É AQUI!!!
 				var _nameAndCount = _action.name; // PARA ITENS COM QUANTIDADE LIMITADA
+				//Icon
+				var _icon = -1;
+				if (variable_struct_exists(_action, "habilityIcon"))
+				{
+					_icon = _action.habilityIcon;
+				}
+				
 				if (_action.subMenu == -1)
 				{
-					array_push(_menuOptions, [_nameAndCount, MenuSelectAction, [_unit, _action], _available]);
+					array_push(_menuOptions, [_nameAndCount, MenuSelectAction, [_unit, _action], _available, _icon]);
 				}
 				else
 				{
 					//create or add submenu
 					if ( is_undefined(_subMenus[$ _action.subMenu]) )
 					{
-						variable_struct_set(_subMenus, _action.subMenu, [[_nameAndCount, MenuSelectAction, [_unit, _action], _available]]);
+						variable_struct_set(_subMenus, _action.subMenu, [[_nameAndCount, MenuSelectAction, [_unit, _action], _available, _icon]]);
 					} else
 					{
-						array_push(_subMenus[$ _action.subMenu], [_nameAndCount, MenuSelectAction, [_unit, _action], _available]);
+						array_push(_subMenus[$ _action.subMenu], [_nameAndCount, MenuSelectAction, [_unit, _action], _available, _icon]);
 					}
 				}
 			}
@@ -111,7 +118,7 @@ function BattleStateSelectAction()
 				//sort submenu if needed (here)
 				
 					//add back to sub menu
-					array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true]);
+					array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true, sprIconBack]);
 				//add submenu to main menu
 					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true])
 			}

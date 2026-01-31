@@ -1,13 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"objSelectorUnits",
-  "eventList":[],
+  "%Name":"bjMainMenu",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"objSelectorUnits",
+  "name":"bjMainMenu",
   "overriddenProperties":[],
   "parent":{
-    "name":"BattleSystem",
-    "path":"folders/BattleSystem.yy",
+    "name":"GUI",
+    "path":"folders/GUI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprSelector",
-    "path":"sprites/sprSelector/sprSelector.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

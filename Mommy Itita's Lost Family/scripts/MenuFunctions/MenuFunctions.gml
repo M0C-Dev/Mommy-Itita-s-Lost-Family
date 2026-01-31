@@ -11,23 +11,18 @@ function Menu( _x, _y, _options, _description = -1, _width = undefined, _height 
 		//Set up size
 		xmargin = 8;
 		ymargin = 8;
+		iconSize = 8;
+		iconPadding = 2;
+		iconOffset = 0;
+		
+		//Checa os icones e caso tenha seta certinha a distancia
+		CalcIcons();
+		
 		draw_set_font(global.font_main);
 		heightLine = 16;
 		
 		//Auto width
-		if ( _width = undefined ) 
-		{
-			width = 1;
-			if ( description != -1 )
-			{
-				width = max( width, string_width(_description) );
-			}
-			for ( var i = 0; i < _optionsCount; i++ )
-			{
-				width = max( width, string_width(_options[i][0]) );
-			}
-			widthFull = width + xmargin*2;
-		} else { widthFull = _width };
+		CalcWidth();
 		
 		//Auto height
 		if ( _height == undefined )
@@ -54,6 +49,8 @@ function SubMenu(_options)
 	optionsAbove[subMenuLevel] = options;
 	subMenuLevel++;
 	options = _options;
+	CalcIcons();
+	CalcWidth();
 	hover = 0;
 }
 
@@ -61,6 +58,9 @@ function MenuGoBack()
 {
 	subMenuLevel--;
 	options = optionsAbove[subMenuLevel];
+	//recaclcula icones
+	CalcIcons();
+	CalcWidth();
 	hover = 0;
 }
 
@@ -108,3 +108,45 @@ function MenuSelectAction( _user, _action )
 	}
 }
 
+function CalcIcons()
+{
+	hasIcons = false;
+	
+	//Acess each option and see if it has an icon
+	for (var i = 0; i < array_length(options); i++)
+	{
+		if (array_length(options[i]) > 4 && options[i][4] != -1)
+		{
+			hasIcons = true;
+			break;
+		}
+	}
+
+	if (hasIcons)
+	{
+		iconOffset = iconSize + iconPadding;
+	}
+	else
+	{
+		iconOffset = 0;
+	}
+}
+
+function CalcWidth()
+{
+	draw_set_font(global.font_main);
+	width = 1;
+
+	if (description != -1)
+	{
+		width = max( width, string_width(description) );
+	}
+
+	for (var i = 0; i < array_length(options); i++)
+	{
+		width = max( width, string_width(options[i][0]) + iconOffset );
+	}
+	widthFull = width + xmargin * 2;
+	//Evitar bugs
+	widthFull = max(widthFull, 1);
+};
