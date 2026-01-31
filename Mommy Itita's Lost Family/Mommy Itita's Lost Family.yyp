@@ -90,6 +90,7 @@
     {"id":{"name":"sprPortraitFlowerPotBroken","path":"sprites/sprPortraitFlowerPotBroken/sprPortraitFlowerPotBroken.yy",},},
     {"id":{"name":"sprPortraitFlowerPotIdle","path":"sprites/sprPortraitFlowerPotIdle/sprPortraitFlowerPotIdle.yy",},},
     {"id":{"name":"sprPortraitPlayerAttack","path":"sprites/sprPortraitPlayerAttack/sprPortraitPlayerAttack.yy",},},
+    {"id":{"name":"sprPortraitPlayerCure","path":"sprites/sprPortraitPlayerCure/sprPortraitPlayerCure.yy",},},
     {"id":{"name":"sprPortraitPlayerDown","path":"sprites/sprPortraitPlayerDown/sprPortraitPlayerDown.yy",},},
     {"id":{"name":"sprPortraitPlayerIdle","path":"sprites/sprPortraitPlayerIdle/sprPortraitPlayerIdle.yy",},},
     {"id":{"name":"sprPortraitPlayerShock","path":"sprites/sprPortraitPlayerShock/sprPortraitPlayerShock.yy",},},

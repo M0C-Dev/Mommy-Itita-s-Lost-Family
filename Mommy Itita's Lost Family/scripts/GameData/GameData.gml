@@ -55,7 +55,7 @@ global.actionLibrary =
 		targetType : TARGET_TYPE.ALLY,
 		targetEnemyByDefault : false,
 		targetAll : MODE.NEVER,
-		userAnimation : "attack",
+		userAnimation : "cure",
 		//effectSprite : sprDebugAnimation,
 		effectOnTarget : MODE.ALWAYS,
 		func : function(_user, _targets)
@@ -84,7 +84,14 @@ global.party =
 		epMax : 10,
 		strength : 2,
 		critChance : 100,
-		sprites : { idle:sprPortraitPlayerIdle, attack:sprPortraitPlayerAttack, defend:sprPortraitPlayerIdle, down:sprPortraitPlayerDown, shock:sprPortraitPlayerShock },
+		sprites : { 
+			idle:sprPortraitPlayerIdle, 
+			attack:sprPortraitPlayerAttack, 
+			defend:sprPortraitPlayerIdle, 
+			down:sprPortraitPlayerDown, 
+			shock:sprPortraitPlayerShock, 
+			cure:sprPortraitPlayerCure
+		},
 		actions : [global.actionLibrary.attack, global.actionLibrary.shock, global.actionLibrary.cure]
 	},
 ];
